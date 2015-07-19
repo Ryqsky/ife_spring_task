@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>小练习3</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -21,14 +22,16 @@
 </header>
 <div class="container">
     <h2>小练习3</h2>
+
     <p>要求：实现轮播图。</p>
+
     <div class="imageRotation">
         <div class="imageBox">
-            <a href="http://www.ruanyq.com" target="_blank"><img src="images/1.jpg" /></a>
-            <a href="http://www.ruanyq.com" target="_blank"><img src="images/2.jpg" /></a>
-            <a href="http://www.ruanyq.com" target="_blank"><img src="images/3.jpg" /></a>
-            <a href="http://www.ruanyq.com" target="_blank"><img src="images/4.jpg" /></a>
-            <a href="http://www.ruanyq.com" target="_blank"><img src="images/5.jpg" /></a>
+            <a href="http://www.ruanyq.com" target="_blank"><img src="images/1.jpg"/></a>
+            <a href="http://www.ruanyq.com" target="_blank"><img src="images/2.jpg"/></a>
+            <a href="http://www.ruanyq.com" target="_blank"><img src="images/3.jpg"/></a>
+            <a href="http://www.ruanyq.com" target="_blank"><img src="images/4.jpg"/></a>
+            <a href="http://www.ruanyq.com" target="_blank"><img src="images/5.jpg"/></a>
         </div>
         <div class="icoBox">
             <a href="javascript:;" class="active"></a>
@@ -37,6 +40,11 @@
             <a href="javascript:;" class=""></a>
             <a href="javascript:;" class=""></a>
         </div>
+        <a id="prev" class="arrow"><i class="fa fa-chevron-left"></i></a>
+        <a id="next" class="arrow"><i class="fa fa-chevron-right"></i></a>
+    </div>
+    <div class="deal">
+        <button type="button" id="stop">停止</button>
     </div>
 </div>
 <footer>

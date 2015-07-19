@@ -95,14 +95,14 @@ footer {
     text-align: center;
 }
 .imageRotation {
-    height: 300px;
+    height: 270px;
     width: 570px;
     overflow: hidden;
     position: relative;
     border:10px solid #A2B5A1;
     border-radius: 5px;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 .imageBox{
     position: absolute;
@@ -122,7 +122,7 @@ footer {
 }
 .icoBox{
     position:absolute;  /*--固定定位--*/
-    bottom:4px;
+    bottom:8px;
     left:247px;
     width:76px;
     height:12px;
@@ -142,4 +142,24 @@ footer {
 .icoBox a.active {
     background-position:0px -12px;
     cursor:default;
+}
+#prev {
+    left: 0;
+}
+#next {
+    right: 0;
+}
+a.arrow {
+    position: absolute;
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    color: rgba(198, 240, 205, 0.33);
+    font-size: 40px;
+    text-align: center;
+}
+a.arrow i {
+    margin-top: 120px;
 }

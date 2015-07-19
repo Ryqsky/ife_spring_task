@@ -206,7 +206,6 @@ function getPosition(element) {
     }
 }
 
-// ʵ��һ���򵥵�Query
 function $(selector) {
     var allchilds = [];
     var childs = function (element) {
@@ -282,22 +281,6 @@ function $(selector) {
     return ele;
 }
 
-// ����ͨ��id��ȡDOM����ͨ��#��ʾ������
-//$("#adom"); // ����idΪadom��DOM����
-//
-//// ����ͨ��tagName��ȡDOM��������
-//$("a"); // ���ص�һ��<a>����
-//
-//// ����ͨ����ʽ���ƻ�ȡDOM��������
-//$(".classa"); // ���ص�һ����ʽ�������classa�Ķ���
-//
-//// ����ͨ��attributeƥ���ȡDOM��������
-//$("[data-log]"); // ���ص�һ����������data-log�Ķ���
-//
-//$("[data-time=2015]"); // ���ص�һ����������data-time��ֵΪ2015�Ķ���
-//
-//// ����ͨ���򵥵������߲�ѯ�����ԣ�����
-//$("#adom .classa"); // ����idΪadom��DOM�������������ӽڵ��У���һ����ʽ�������classa�Ķ���
 
 
 //task 4.1
@@ -339,6 +322,15 @@ function delegateEvent(element, tag, eventName, listener) {
     });
 }
 
+$.on = function(selector, event, listener) {
+    addEvent($(selector), event, listener);
+};
+$.click = function(selector, listener) {
+    addClickEvent($(selector), listener);
+};
+$.un = function(selector, event, listener) {
+    removeEvent($(selector), event, listener);
+};
 $.delegate = function(selector, tag, event, listener) {
     delegateEvent($(selector), tag, event, listener);
 };
