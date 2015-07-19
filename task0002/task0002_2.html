@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>小练习2</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<header>
+    <nav class="nav-wrap">
+        <div class="logo"><a href="http://www.ruanyq.com">Ruanyq</a></div>
+        <ul>
+            <li><a href="task0002_1.html">小练习1</a></li>
+            <li><a href="task0002_2.html">小练习2</a></li>
+            <li><a href="task0002_3.html">小练习3</a></li>
+            <li><a href="task0002_4.html">小练习4</a></li>
+            <li><a href="task0002_5.html">小练习5</a></li>
+        </ul>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <h2>小练习2</h2>
+    <p>要求：实现一个倒计时功能。</p>
+    <ul>
+        <li>界面首先有一个文本输入框，允许按照特定的格式YYYY-MM-DD输入年月日；</li>
+        <li>输入框旁有一个按钮，点击按钮后，计算当前距离输入的日期的00:00:00有多少时间差</li>
+        <li>在页面中显示，距离YYYY年MM月DD日还有XX天XX小时XX分XX秒</li>
+        <li>每一秒钟更新倒计时上显示的数</li>
+        <li>如果时差为0，则倒计时停止</li>
+    </ul>
+    <input type="text" name="time" id="import"/>
+    <div class="deal">
+        <label id="tip" style="display: none;">Tip:请输入一个正确的将来的时间!!!</label>
+        <button type="button" id="submit">提交</button>
+        <button type="button" id="reset">重置</button>
+    </div>
+    <div id="result"></div>
+</div>
+<footer>
+    <div class="container">
+        <p>Made with Heart by Ruanyq.</p>
+    </div>
+</footer>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/task0002_2.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family:"Microsoft YaHei" ! important;
+    background: #eeeeee url("../images/background.png");
+}
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.container {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+.nav-wrap {
+    position: relative;
+    width: 980px;
+    height: 80px;
+    margin: 0 auto;
+}
+header {
+    height: 80px;
+    background: rgba(7, 148, 37, 0.6);
+    color: #fff;
+}
+header nav .logo {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+header nav .logo a {
+    color: #ffffff;
+    text-decoration: none;
+}
+header nav ul {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    bottom: 14px;
+    right: 0px;
+}
+header nav li {
+    margin-left: 18px;
+    list-style: none;
+    display: inline-block;
+}
+header nav li a{
+    text-decoration: none;
+    color: #fff;
+}
+#tip {
+    color: #FF0000;
+    margin-top: 10px;
+}
+#textarea {
+    width: 100%;
+    height: 300px;
+    display: block;
+    margin: 32px auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+#import {
+    margin: 32px auto;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+.deal {
+    text-align: center;
+}
+button {
+    margin: 10px 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #14C36C;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family:"Microsoft YaHei" ! important;
+}
+#result {
+    margin-top: 50px;
+    display: block;
+}
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+.imageRotation {
+    height: 300px;
+    width: 570px;
+    overflow: hidden;
+    position: relative;
+    border:10px solid #A2B5A1;
+    border-radius: 5px;
+    position: relative;
+    margin: 0 auto;
+}
+.imageBox{
+    position: absolute;
+    height: 270px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    font-size: 0;
+    width:2850px;
+}
+.imageBox img {
+    display:inline-block;
+    height:270px;
+    width:570px;
+    float:left;
+    border:none;
+}
+.icoBox{
+    position:absolute;  /*--固定定位--*/
+    bottom:4px;
+    left:247px;
+    width:76px;
+    height:12px;
+    text-align:center;
+    line-height:40px;
+}
+.icoBox a{
+    display:block;
+    float:left;
+    height:12px;
+    width:12px;
+    margin-left:3px;
+    overflow:hidden;
+    background:url("../images/ico.png") 0px 0px no-repeat;
+    cursor:pointer;
+}
+.icoBox a.active {
+    background-position:0px -12px;
+    cursor:default;
+}
