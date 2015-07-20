@@ -33,7 +33,7 @@ function showHint(e) {
             }
             break;
         case 40 :
-            if (next < resultLen) {
+            if (next < resultLen - 1) {
                 if (choose !== -1) {
                     word[choose].className = '';
                 }

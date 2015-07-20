@@ -1,29 +1,34 @@
 body {
     margin: 0;
-    font-family:"Microsoft YaHei" ! important;
+    font-family: "Microsoft YaHei" ! important;
     background: #eeeeee url("../images/background.png");
 }
+
 .clearfix:after {
     content: '';
     clear: both;
     display: block;
 }
+
 .container {
     width: 980px;
     margin: 0 auto;
     position: relative;
 }
+
 .nav-wrap {
     position: relative;
     width: 980px;
     height: 80px;
     margin: 0 auto;
 }
+
 header {
     height: 80px;
     background: rgba(7, 148, 37, 0.6);
     color: #fff;
 }
+
 header nav .logo {
     position: absolute;
     bottom: 14px;
@@ -31,10 +36,12 @@ header nav .logo {
     font-size: 30px;
     font-weight: 700;
 }
+
 header nav .logo a {
     color: #ffffff;
     text-decoration: none;
 }
+
 header nav ul {
     margin: 0px;
     padding: 0px;
@@ -42,19 +49,23 @@ header nav ul {
     bottom: 14px;
     right: 0px;
 }
+
 header nav li {
     margin-left: 18px;
     list-style: none;
     display: inline-block;
 }
-header nav li a{
+
+header nav li a {
     text-decoration: none;
     color: #fff;
 }
+
 #tip {
     color: #FF0000;
     margin-top: 10px;
 }
+
 #textarea {
     width: 100%;
     height: 300px;
@@ -65,16 +76,24 @@ header nav li a{
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 #import {
+
+}
+
+.import {
     margin: 32px auto;
     display: block;
     width: 100%;
     padding: 8px;
     font-size: 16px;
+    box-sizing: border-box;
 }
+
 .deal {
     text-align: center;
 }
+
 button {
     margin: 10px 5px;
     width: 100px;
@@ -84,62 +103,127 @@ button {
     color: #fff;
     border-radius: 5px;
     font-size: 20px;
-    font-family:"Microsoft YaHei" ! important;
+    font-family: "Microsoft YaHei" ! important;
 }
+
 #result {
     margin-top: 50px;
     display: block;
 }
+
 footer {
     margin-top: 50px;
     text-align: center;
 }
+
 .imageRotation {
-    height: 300px;
-    width: 570px;
+    height: 500px;
+    width: 1000px;
     overflow: hidden;
     position: relative;
-    border:10px solid #A2B5A1;
+    border: 10px solid #A2B5A1;
     border-radius: 5px;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
-.imageBox{
+
+.imageBox {
     position: absolute;
-    height: 270px;
+    height: 500px;
     top: 0;
     left: 0;
     overflow: hidden;
     font-size: 0;
-    width:2850px;
+    width: 5000px;
 }
+
 .imageBox img {
-    display:inline-block;
-    height:270px;
-    width:570px;
-    float:left;
-    border:none;
+    display: inline-block;
+    height: 500px;
+    width: 1000px;
+    float: left;
+    border: none;
 }
-.icoBox{
-    position:absolute;  /*--固定定位--*/
-    bottom:4px;
-    left:247px;
-    width:76px;
-    height:12px;
-    text-align:center;
-    line-height:40px;
+
+.icoBox {
+    position: absolute; /*--固定定位--*/
+    bottom: 8px;
+    left: 440px;
+    width: 76px;
+    height: 12px;
+    text-align: center;
+    line-height: 40px;
 }
-.icoBox a{
-    display:block;
-    float:left;
-    height:12px;
-    width:12px;
-    margin-left:3px;
-    overflow:hidden;
-    background:url("../images/ico.png") 0px 0px no-repeat;
-    cursor:pointer;
+
+.icoBox a {
+    display: block;
+    float: left;
+    height: 12px;
+    width: 12px;
+    margin-left: 3px;
+    overflow: hidden;
+    background: url("../images/ico.png") 0px 0px no-repeat;
+    cursor: pointer;
 }
+
 .icoBox a.active {
-    background-position:0px -12px;
-    cursor:default;
+    background-position: 0px -12px;
+    cursor: default;
+}
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+a.arrow {
+    position: absolute;
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    color: rgba(198, 240, 205, 0.33);
+    font-size: 40px;
+    text-align: center;
+}
+
+a.arrow i {
+    margin-top: 240px;
+}
+
+.inputarea {
+    position: relative;
+}
+
+.prompt {
+    width: 980px;
+    position: absolute;
+    top: 40px;
+    background-color: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.prompt ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.prompt ul li {
+    padding: 0 8px;
+    line-height: 26px;
+    cursor: default;
+}
+
+.choose {
+    background-color: #eeeeee;
 }
