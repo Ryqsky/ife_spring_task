@@ -380,8 +380,6 @@ function getCookie(cookieName) {
 
 //
 function ajax(url, options) {
-    // ��������
-
     var xmlhttp;
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -435,18 +433,3 @@ function ajax(url, options) {
     }
 }
 
-
-//ajax(
-//    'http://www.ruanyq.com/prompt.php',
-//    {
-//        data: {
-//            q: 'a'
-//        },
-//        onsuccess: function (responseText, xhr) {
-//            console.log(responseText);
-//        },
-//        onfail: function () {
-//            console.log("fail");
-//        }
-//    }
-//);
