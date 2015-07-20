@@ -96,13 +96,11 @@ function uniqArray(arr) {
     }
     return uniq;
 }
-// ʹ��ʾ��
 
 //var a = [1, 3, 5, 7, 5, 3];
 //var b = uniqArray(a);
 //console.log(b); // [1, 3, 5, 7]
 
-// ��ϰͨ��ѭ�����Լ��ַ�����һЩ�����������ֱ�ɨ���ַ���strͷ����β���Ƿ��������Ŀհ��ַ�������ɾ�����ǣ���󷵻�һ�����ȥ�����ַ���
 function simpleTrim(str) {
     for (var i = 0, len = str.length; i < len; i++) {
         if (str[i] != ' ') {
@@ -123,20 +121,17 @@ function trim(str) {
 //str = trim(str);
 //console.log(str); // 'hi!'
 
-// ʵ��һ����������ķ��������������ÿһ��Ԫ��ִ��fn��������������������Ԫ����Ϊ��������
 function each(arr, fn) {
     for (var i = 0, len = arr.length; i < len; i++) {
         fn(arr[i], i);
     }
 }
-// ʹ��ʾ��
 //var arr = ['java', 'c', 'php', 'html'];
 //function output(item, index) {
 //    console.log(index + ': ' + item)
 //}
 //each(arr, output);  // 0:java, 1:c, 2:php, 3:html
 
-// ��ȡһ�����������һ��Ԫ�ص�����������һ������
 function getObjectLength(obj) {
     var len = 0;
     for (var key in obj) {
