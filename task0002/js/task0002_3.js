@@ -4,13 +4,13 @@
 var activeID = 1;
 var timerInner = null;
 var icoArr = $(".icoBox").getElementsByTagName('a');
-var imgWidth = $("img").offsetWidth;
+var imgWidth = $(".rotateImg").offsetWidth;
 var imageBox = $(".imageBox");
 for (var i = 0, len = icoArr.length; i < len; i++) {
     icoArr[i].index = i + 1;
 }
 t = setInterval(rotate, 3000);
-console.log(imageBox.offsetLeft);
+
 function rotate(clickID) {
     if (clickID) {
         nextID = clickID;
