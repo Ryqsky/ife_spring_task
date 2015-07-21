@@ -1,30 +1,10 @@
-//task1.1 ʵ�ּ򵥼ӷ�
-//function $(id) {
-//    return document.getElementById(id);
-//}
-//function add(num1, num2) {
-//    return num1 + num2;
-//}
-//function renderResult(result) {
-//    $("result").innerHTML = result;
-//}
-//function addEventHandle() {
-//    var num1 = $("num1").value;
-//    var num2 = $("num2").value;
-//    var result = add(num1, num2);
-//    renderResult(result);
-//}
-//function initEvent() {
-//    $("addbtn").addEventListener("click", addEventHandle, false);
-//}
+/**
+ * Created by Ryq on 2015/7/21.
+ */
 
-//task2.1 ʵ���жϸ����������͵ķ���
-
-// �ж�arr�Ƿ�Ϊһ�����飬����һ��boolֵ
 function isArray(arr) {
     return Object.prototype.toString.call(arr) === '[object Array]';
 }
-// �ж�fn�Ƿ�Ϊһ������������һ��boolֵ
 function isFunction(fn) {
     return !!fn
         && !fn.nodeName
@@ -34,14 +14,10 @@ function isFunction(fn) {
         && /function/i.test(fn + '');
 }
 
-// ʹ�õݹ���ʵ��һ����ȿ�¡�����Ը���һ��Ŀ����󣬷���һ����������
-// �����ƵĶ������ͻᱻ����Ϊ���֡��ַ��������������ڡ����顢Object���󡣲��������������������
 function cloneObject(src) {
-    //���� ���� �ַ��� ���� null undefined
     if (src == null || typeof src != 'object') {
         return src;
     }
-    //�������� ���� Object ����object�����������ж�
     if (src instanceof Date) {
         var clone = new Date(src.getDate());
         return clone;
@@ -66,27 +42,6 @@ function cloneObject(src) {
     }
 }
 
-//// ����������
-//var srcObj = {
-//    a: 1,
-//    b: {
-//        b1: ["hello", "hi"],
-//        b2: "JavaScript"
-//    }
-//};
-//var abObj = srcObj;
-//var tarObj = cloneObject(srcObj);
-//
-//srcObj.a = 2;
-//srcObj.b.b1[0] = "Hello";
-//
-//console.log(abObj.a);
-//console.log(abObj.b.b1[0]);
-//
-//console.log(tarObj.a);      // 1
-//console.log(tarObj.b.b1[0]);    // "hello"
-
-// ���������ȥ�ز�����ֻ����������Ԫ��Ϊ���ֻ��ַ���������һ��ȥ�غ������
 function uniqArray(arr) {
     var uniq = [];
     for (var i = 0, len = arr.length; i < len; i++) {
@@ -96,10 +51,6 @@ function uniqArray(arr) {
     }
     return uniq;
 }
-
-//var a = [1, 3, 5, 7, 5, 3];
-//var b = uniqArray(a);
-//console.log(b); // [1, 3, 5, 7]
 
 function simpleTrim(str) {
     for (var i = 0, len = str.length; i < len; i++) {
@@ -117,20 +68,13 @@ function simpleTrim(str) {
 function trim(str) {
     return str.replace(/^\s+|\s+$/g, '');
 }
-//var str = '   hi!   ';
-//str = trim(str);
-//console.log(str); // 'hi!'
+
 
 function each(arr, fn) {
     for (var i = 0, len = arr.length; i < len; i++) {
         fn(arr[i], i);
     }
 }
-//var arr = ['java', 'c', 'php', 'html'];
-//function output(item, index) {
-//    console.log(index + ': ' + item)
-//}
-//each(arr, output);  // 0:java, 1:c, 2:php, 3:html
 
 function getObjectLength(obj) {
     var len = 0;
@@ -142,15 +86,7 @@ function getObjectLength(obj) {
     return len;
 }
 
-//var obj = {
-//    a: 1,
-//    b: 2,
-//    c: {
-//        c1: 3,
-//        c2: 4
-//    }
-//};
-//console.log(getObjectLength(obj)); // 3
+
 
 //task 2.4
 function isEmail(emailStr) {

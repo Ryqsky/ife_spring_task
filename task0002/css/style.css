@@ -29,12 +29,38 @@ body {
     color: #fff;
 }
 
-.header .intro {
+.intro {
     padding: 40px 0 50px;
     -webkit-animation: nav-down 0.5s;
-    -o-animation: nav-down 0.5s;
     animation: nav-down 0.5s;
+    transition: all 0.5s;
 }
+.intro a {
+    color: #ffffff;
+}
+@-webkit-keyframes nav-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateY(-10em);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+    }
+}
+
+@-webkit-keyframes nav-up {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1) translateY(10em);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1) translateY(0);
+    }
+}
+
+
 .avatar {
     height: 120px;
     width: 120px;
@@ -72,6 +98,8 @@ img {
 .portal {
     height: 70px;
     text-align: center;
+    -webkit-animation: nav-up 0.5s;
+    animation: nav-up 0.5s;
 }
 a, a:link {
     text-decoration: none;
@@ -97,7 +125,7 @@ a, a:link {
 .btn_portal .t2 {
     display: block;
     font-size: 12px;
-    /*font-style: italic;*/
+    font-style: italic;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -ms-transition: all .3s;
@@ -182,6 +210,9 @@ button {
 footer {
     margin-top: 50px;
     text-align: center;
+}
+footer a {
+    color: #3AA2C1;
 }
 
 .imageRotation {
