@@ -1,7 +1,8 @@
 /**
  * Created by Ryq on 2015/7/19.
  */
-var activeID = 1;
+//初始化数据
+var activeID = 1; //当前显示ID
 var timerInner = null;
 var icoArr = $(".icoBox").getElementsByTagName('a');
 var imgWidth = $(".rotateImg").offsetWidth;
@@ -9,8 +10,24 @@ var imageBox = $(".imageBox");
 for (var i = 0, len = icoArr.length; i < len; i++) {
     icoArr[i].index = i + 1;
 }
-t = setInterval(rotate, 3000);
 
+//页面加载成功时，开始轮播
+window.onload = function(){
+    t = setInterval(rotate, 3000);
+}
+
+//绑定事件
+$.delegate(".icoBox", "a", "click", function () {
+    clearInterval(t);
+    var clickID = this.index;
+    rotate(clickID);
+    t = setInterval(rotate, 3000);
+});
+$.on("#prev", "click", prev);
+$.on("#next", "click", next);
+$.on("#stop", "click", stop);
+
+//轮播图主函数
 function rotate(clickID) {
     if (clickID) {
         nextID = clickID;
@@ -22,21 +39,21 @@ function rotate(clickID) {
     addClass(icoArr[nextID - 1], "active")
     activeID = nextID;
 }
-$.delegate(".icoBox", "a", "click", function () {
-    clearInterval(t);
-    var clickID = this.index;
-    rotate(clickID);
-    t = setInterval(rotate, 3000);
-});
+
+//开始移动函数
 function startMove(target) {
     clearInterval(timerInner);
     timerInner = setInterval(function () {
-        var speed = (target - imageBox.offsetLeft) / 6;
+        var speed = (target - imageBox.offsetLeft) / 8;
         speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
         imageBox.style.left = imageBox.offsetLeft + speed + "px";
+        if(speed == 0){
+            clearInterval(timerInner);
+        }
     }, 20);
 }
-$.on("#prev", "click", prev);
+
+//点击上一张
 function prev() {
     clearInterval(t);
     if (activeID == 1) {
@@ -47,7 +64,8 @@ function prev() {
     rotate(clickID);
     t = setInterval(rotate, 3000);
 }
-$.on("#next", "click", next);
+
+//点击下一张
 function next() {
     clearInterval(t);
     if (activeID == 5) {
@@ -55,11 +73,11 @@ function next() {
     } else {
         var clickID = activeID + 1;
     }
-
     rotate(clickID);
     t = setInterval(rotate, 3000);
 }
-$.on("#stop", "click", stop);
+
+//停止
 function stop() {
     clearInterval(t);
 }

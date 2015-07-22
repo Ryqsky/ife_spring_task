@@ -1,10 +1,7 @@
 /**
  * Created by Ryq on 2015/7/20.
  */
-/**
- * 定义
- * @type {NodeList|jQuery}
- */
+//初始化数据
 var startX;
 var startY;
 var startTop;
@@ -12,10 +9,8 @@ var startLeft;
 var elePosition;
 var drag = $('.drag-container').getElementsByClassName('drag');
 var wrap = $('.drag-container').getElementsByClassName('drag-wrap');
-;
-/**
- * 事件函数
- */
+
+//页面加载完成绑定事件
 window.onload = function () {
     for (var i = 0, len = drag.length; i < len; i++) {
         drag[i].draggable = true;
@@ -26,6 +21,8 @@ window.onload = function () {
     addEvent(document.body, 'drop', drop);
     addEvent(document.body, 'dragover', dragOver);
 }
+
+//事件函数
 function dragStart(e) {
     e = e || window.event;
     startX = e.clientX;
@@ -43,16 +40,20 @@ function dragging(e) {
     }
 }
 
+//阻止浏览器对容器的默认处理
 function dragOver(e) {
     e.preventDefault();
 }
+
+//放下
 function drop(e) {
     e = e || window.event;
     var moveX = e.clientX - startX;
     var moveY = e.clientY - startY;
     var top = startTop + moveY;
     var left = startLeft + moveX;
-    var location = [];
+
+    var location = [];              //获取元素位置
     if (left < 211) {
         location[0] = 0;
     } else if (left < 473) {
@@ -62,21 +63,19 @@ function drop(e) {
     }
     var tgWrap = wrap[location[0]];
     var tgLength = tgWrap.getElementsByClassName('drag').length;
-
     var tgHeight = tgLength * 41;
-
     if (top > tgHeight) {
         location[1] = tgLength;
-    } else {
+    } else if (top >= 0){
         location[1] = Math.round(top / 41);
+    } else {
+        location[1] = 0;
     }
     var tgDrag = tgWrap.getElementsByClassName('drag')[location[1]];
     if (tgDrag) {
         var tgTop = parseInt(tgDrag.style.top);
-        console.log(tgTop);
     } else {
         var tgTop = location[1] * 41;
-        console.log(tgTop);
     }
     moveDrag(tgDrag, 41);
     var dragging = document.getElementsByClassName('dragging')[0];
@@ -86,15 +85,14 @@ function drop(e) {
     tgWrap.insertBefore(dragging, tgDrag);
 }
 
-/**
- * 工具函数
- */
+//工具函数
 function moveDrag(element, target) {
     while (element) {
         element.style.top = parseInt(element.style.top) + target + 'px';
         element = nextDrag(element);
     }
 }
+
 function nextDrag(element) {
     var borther = element.nextSibling;
     while (borther !== null && borther.nodeName === "#text") {

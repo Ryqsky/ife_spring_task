@@ -1,94 +1,44 @@
 /**
- * Created by Ryq on 2015/7/20.
+ * Created by Ryq on 2015/7/19.
  */
-var word = $('.prompt').getElementsByTagName('li');
-var choose = -1;
-var next = 0;
-var resultLen;
-for (var i = 0, len = word.length; i < len; i++) {
-    word[i].index = i + 1;
-}
-$.on("#import", "keyup", showHint);
-function showHint(e) {
-    var str = $("#import").value;
-    if (str == '') {
-        clear();
-        return;
-    }
+//绑定事件
+$.on("#submit","click",timer);
+$.on("#reset","click",reset);
 
-    if (window.event) {                          // 获取键盘按下的字符
-        var keynum = e.keyCode;
-    }
-    else if (e.which) {
-        var keynum = e.which;
-    }
+function timer() {
+    var timer = $("#import").value;
+    timer = timer.split("-");
+    if (timer.length !== 3) {
+        $("#tip").style.display = "block";
+    } else {
+        t = setTimeout('timer()', 1000);
 
-    switch (keynum) {
-        case 38 :
-            if (choose > 0) {
-                next = choose - 1;
-                word[next].className = 'choose';
-                word[choose].className = '';
-                choose = next;
-            }
-            break;
-        case 40 :
-            if (next < resultLen) {
-                if (choose !== -1) {
-                    word[choose].className = '';
-                }
-                next = choose + 1;
-                word[next].className = 'choose';
-                choose = next;
-            }
-            break;
-        case 13 :
-            $("#import").value = word[choose].innerHTML;
-            clear();
-            break;
-        default :
-            ajax(
-                'prompt.php',
-                {
-                    data: {
-                        q: str
-                    },
-                    onsuccess: function (responseText, xhr) {
-                        clear();
-                        result = responseText.replace(/\s+/g, '').split(',');
-                        for (var i = 0, len = result.length; i < len; i++) {
-                            word[i].innerHTML = result[i];
-                        }
-                        resultLen = result.length;
-                    },
-                    onfail: function () {
-                        console.log("onfail");
-                    }
-                }
-            );
-            break;
+        var future = new Date();
+        future.setFullYear(timer[0], timer[1] - 1, timer[2]);
+        future.setHours(0, 0, 0, 0)
+        var now = new Date();
+
+        if (future - now < 0) {
+            clearTimeout(t);
+            $("#tip").style.display = "block";
+            return;
+        }
+
+        var day = Math.floor((future - now) / 1000 / 60 / 60 / 24);
+        var hours = Math.floor((future - now) / 1000 / 60 / 60) - (day * 24);
+        var minutes = Math.floor((future - now) / 1000 / 60) - (day * 24 * 60) - (hours * 60);
+        var seconds = Math.floor((future - now) / 1000) - (day * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
+
+        $("#tip").style.display = "none";
+        $("#result").innerHTML = '距离' + timer[0] + '年'
+            + timer[1] + '月' + timer[2] + '日'
+            + '还有' + day + '天' + hours + '小时' + minutes + '分' + seconds + '秒';
     }
-    console.log(choose);
 }
 
-$.delegate('.prompt', 'li', 'click', function () {
-    $("#import").value = word[this.index - 1].innerHTML;
-    clear();
-});
-
-$.delegate('.prompt', 'li', 'mouseover', function () {
-    word[this.index - 1].className = 'choose';
-});
-
-$.delegate('.prompt', 'li', 'mouseout', function () {
-    word[this.index - 1].className = '';
-});
-
-function clear() {
-    choose = -1;
-    next = 0;
-    for (var i = 0, len = word.length; i < len; i++) {
-        word[i].innerHTML = '';
-        word[i].className = '';
-    }
+function reset() {
+    clearTimeout(t);
+    $("#result").innerHTML = "";
+    $("#import").value = "";
+    $("#tip").style.display = "none";
 }
