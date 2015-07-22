@@ -1,6 +1,10 @@
 /**
  * Created by Ryq on 2015/7/16.
  */
+//绑定事件
+$.on("#submit","click",out);
+$.on("#reset","click",reset);
+
 function out(){
     var date = $("#textarea").value;
     date = date.split(/\,|\s|\t/);
@@ -16,9 +20,9 @@ function out(){
         $("#result").innerHTML += "<label><input name='Fruit' type='checkbox' />" + date[i] + "</label><br/>";
     }
 }
+
 function reset(){
     $("#result").innerHTML = "";
     $("#textarea").value = "";
+    $("#tip").style.display = "none";
 }
-addEvent($("#submit"),"click",out);
-addEvent($("#reset"),"click",reset);

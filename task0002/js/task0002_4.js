@@ -1,6 +1,8 @@
 /**
  * Created by Ryq on 2015/7/20.
  */
+
+//初始化数据
 var word = $('.prompt').getElementsByTagName('li');
 var choose = -1;
 var next = 0;
@@ -8,7 +10,23 @@ var resultLen;
 for (var i = 0, len = word.length; i < len; i++) {
     word[i].index = i + 1;
 }
+
+//绑定事件
 $.on("#import", "keyup", showHint);
+$.delegate('.prompt', 'li', 'click', function () {
+    $("#import").value = word[this.index - 1].innerHTML;
+    clear();
+});
+
+$.delegate('.prompt', 'li', 'mouseover', function () {
+    word[this.index - 1].className = 'choose';
+});
+
+$.delegate('.prompt', 'li', 'mouseout', function () {
+    word[this.index - 1].className = '';
+});
+
+//显示暗示函数
 function showHint(e) {
     var str = $("#import").value;
     if (str == '') {
@@ -24,7 +42,7 @@ function showHint(e) {
     }
 
     switch (keynum) {
-        case 38 :
+        case 38 :                                 // 按下Up键
             if (choose > 0) {
                 next = choose - 1;
                 word[next].className = 'choose';
@@ -32,7 +50,7 @@ function showHint(e) {
                 choose = next;
             }
             break;
-        case 40 :
+        case 40 :                                 // 按下Down键
             if (next < resultLen - 1) {
                 if (choose !== -1) {
                     word[choose].className = '';
@@ -42,7 +60,7 @@ function showHint(e) {
                 choose = next;
             }
             break;
-        case 13 :
+        case 13 :                                 // 按下Enter键
             $("#import").value = word[choose].innerHTML;
             clear();
             break;
@@ -68,21 +86,7 @@ function showHint(e) {
             );
             break;
     }
-    console.log(choose);
 }
-
-$.delegate('.prompt', 'li', 'click', function () {
-    $("#import").value = word[this.index - 1].innerHTML;
-    clear();
-});
-
-$.delegate('.prompt', 'li', 'mouseover', function () {
-    word[this.index - 1].className = 'choose';
-});
-
-$.delegate('.prompt', 'li', 'mouseout', function () {
-    word[this.index - 1].className = '';
-});
 
 function clear() {
     choose = -1;
