@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header">
+        <h1>GTD Tools</h1>
+    </div>
+</header>
+<div class="main">
+    <div class="left">
+        <div id="allTasks" cateid="-1" class="list-title all-tasks active" onclick="clickCate(this)">
+            所有任务 (<span>0</span>)
+        </div>
+        <div class="list-title">分类列表</div>
+        <div id="listContent" class="list">
+        </div>
+        <button class="add" onclick="clickAddCate()">新增分类</button>
+    </div>
+    <div class="mid">
+        <div class="status">
+            <button id="all-tasks" class="">所有</button>
+            <button id="unfinish-tasks" class="">未完成</button>
+            <button id="finished-tasks" class="">已完成</button>
+        </div>
+        <div id="task-list" class="task-list">
+            <div>2015-06-05</div>
+            <ul>
+                <li>使用说明</li>
+            </ul>
+        </div>
+        <button class="add" onclick="clickAddTask()">新增任务</button>
+    </div>
+    <div class="right">
+        <div class="title">
+            <div class="todo-name">这是标题</div>
+            <div class="manipulate">
+                <a><i class="fa fa-check-square-o"></i></a>
+                <a><i class="fa fa-pencil-square-o"></i></a>
+            </div>
+        </div>
+        <div class="task-date">2015-7-26</div>
+        <div class="content" id="epiceditor" >Test1.0</div>
+        <div class="button-area">
+        </div>
+    </div>
+</div>
+<div class="cover" style="display: none;">
+    <div class="modal">
+        <div class="modal-head">新增分类</div>
+        <div class="modal-body">
+            选择主分类
+            <select id="modal-select">
+                <option value="-1">新增主分类</option>
+            </select>
+            <br/>
+            新分类名称
+            <input type="text" id="newCateName"/>
+        </div>
+        <div class="modal-foot">
+            <button onclick="ok()">确认</button>
+            <button onclick="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/todo.js"></script>
+</body>
+</html>
